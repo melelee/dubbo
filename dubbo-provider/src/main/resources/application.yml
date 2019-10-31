@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: dubbo-provider
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: N/A
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.melelee.dubbo

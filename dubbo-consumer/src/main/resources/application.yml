@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: dubbo-consumer
+dubbo:
+  application:
+    name: ${spring.application.name}
