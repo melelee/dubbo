@@ -7,9 +7,11 @@ dubbo:
   application:
     name: ${spring.application.name}
   registry:
-    address: N/A
+    address: zookeeper://127.0.0.1:2181
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
   protocol:
     name: dubbo
-    port: 20880
+    #随机端口
+    port: -1
   scan:
     base-packages: com.melelee.dubbo

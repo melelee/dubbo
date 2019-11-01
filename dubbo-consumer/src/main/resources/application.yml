@@ -4,3 +4,6 @@ spring:
 dubbo:
   application:
     name: ${spring.application.name}
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache

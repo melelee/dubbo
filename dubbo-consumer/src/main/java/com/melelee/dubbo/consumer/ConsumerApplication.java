@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 public class ConsumerApplication {
 
 
-	@Reference(version = "1.0.0", url = "dubbo://127.0.0.1:20880")
+	@Reference
 	private UserService userService;
 
 	public static void main(String[] args) {
@@ -22,9 +22,7 @@ public class ConsumerApplication {
 
 	@Bean
 	public ApplicationRunner runner() {
-		return args -> {
-			userService.saveUser("mercyblitz");
-		};
+		return args -> userService.saveUser("mercyblitz");
 	}
 }
 
