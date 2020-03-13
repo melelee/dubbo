@@ -1,9 +1,12 @@
-spring:
-  application:
-    name: dubbo-consumer
 dubbo:
   application:
-    name: ${spring.application.name}
+    name: @artifactId@
   registry:
     address: zookeeper://127.0.0.1:2181
     file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+    protocol:
+    check: false
+  consumer:
+    check: false
+  provider:
+

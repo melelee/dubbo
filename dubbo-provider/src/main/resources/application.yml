@@ -2,7 +2,7 @@ server:
   port: 9000
 spring:
   application:
-    name: dubbo-provider
+    name: @artifactId@
 dubbo:
   application:
     name: ${spring.application.name}

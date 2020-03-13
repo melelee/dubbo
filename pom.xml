@@ -35,7 +35,6 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <lombok.version>1.18.0</lombok.version>
         <fastjson.version>1.2.59</fastjson.version>
 
         <skipTests>true</skipTests>
@@ -57,7 +56,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
