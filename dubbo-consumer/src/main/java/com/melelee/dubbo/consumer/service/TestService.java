@@ -2,7 +2,8 @@ package com.melelee.dubbo.consumer.service;
 
 import com.melelee.dubbo.common.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.Method;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class TestService {
-    @Reference(
+    @DubboReference(
             //多版本
             version = "1.0.0",
             //启动检查
@@ -24,16 +25,15 @@ public class TestService {
             //服务降级
             mock = "fail:return+null",
             //集群容错failover/failfast/failsafe/failback/forking/broadcast
-            cluster = "failover"
+            cluster = "failover",
+            methods = {
+                    @Method(name = "saveUser", timeout = 1000)
+            }
     )
     private UserService userService;
 
     @GetMapping(value = "user")
     public String test(@RequestParam String user) {
         return userService.saveUser(user);
-    }
-
-    public TestService() {
-        System.out.println(TestService.log);
     }
 }

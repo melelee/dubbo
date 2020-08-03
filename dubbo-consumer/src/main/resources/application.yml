@@ -9,4 +9,5 @@ dubbo:
   consumer:
     check: false
   provider:
+    registry:
 
